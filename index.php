@@ -12,6 +12,7 @@
 // Milestone 2
 // Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file *functions.php* che includeremo poi nella pagina principale
 
+require_once (__DIR__ . "./_partials/functions.php");
 
 $password_lenght = $_GET["lenght"] ?? "";
 $is_password_valid = true;
@@ -27,20 +28,10 @@ $random_password = randomPassword($password_lenght);
 
 var_dump($random_password);
 
-function randomPassword($password_lenght)
-{
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@.-_,';
-    $pass = array();
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < $password_lenght; $i++) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
-    }
-    return implode($pass); //turn the array into a string
-}
 
+// <?= if($is_password_valid) ? '' : 'is-invalid'
+echo $random_password;
 
-// <?= if($is_password_valid) ? '' : 'is-invalid' ?>
 ?>
 
 
